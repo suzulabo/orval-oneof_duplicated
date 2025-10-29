@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "orval": "7.15.0"
+  }
+}
