@@ -1,0 +1,41 @@
+openapi: 3.0.1
+info:
+  title: Duplicate schema reproduction
+  version: '1.0.0'
+paths:
+  /dummy:
+    get:
+      operationId: getDummy
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    HelloEnum:
+      type: string
+      enum:
+        - HI
+        - OHA
+    BlankEnum:
+      type: string
+      enum:
+        - ''
+    NullEnum:
+      enum:
+        - null
+    Item1:
+      type: object
+      properties:
+        hello:
+          nullable: true
+          oneOf:
+            - $ref: '#/components/schemas/HelloEnum'
+            - $ref: '#/components/schemas/BlankEnum'
+    Item2:
+      type: object
+      properties:
+        hello:
+          nullable: true
+          oneOf:
+            - $ref: '#/components/schemas/HelloEnum'
+            - $ref: '#/components/schemas/BlankEnum'
